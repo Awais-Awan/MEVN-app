@@ -1,77 +1,35 @@
 <template>
-  <div class="page-container">
+  <div class="relative h-screen flex flex-col items-center justify-center bg-orange-400 font-sans">
     <!-- Logo at top-left -->
-    <div class="logo">PayPoint</div>
+    <div class="absolute top-4 left-4 font-bold text-xl text-gray-800">PayPoint</div>
 
     <!-- Up arrow to go to Login -->
-    <div class="arrow" @click="goToLogin">
+    <div
+      :class="['text-3xl cursor-pointer mb-4 text-blue-600 transition-all duration-500 ease-in-out', { 'translate-y-[-100px] opacity-0': slideUp }]"
+      @click="goToLogin"
+    >
       <i class="fas fa-arrow-up"></i>
     </div>
 
     <!-- Centered welcome message -->
-    <div class="welcome">
-      <h1>Welcome to the E-Commerce App!</h1>
-      <p>Explore our products and enjoy shopping 🛍️</p>
+    <div class="text-center px-4">
+      <h1 class="text-3xl font-bold text-white mb-2">Welcome to the E-Commerce App!</h1>
+      <p class="text-white text-lg">Explore our products and enjoy shopping 🛍️</p>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+
 const router = useRouter();
+const slideUp = ref(false);
 
 function goToLogin() {
-  // Add slide-up animation class
-  document.querySelector('.arrow').classList.add('slide-up');
-
-  // Redirect after animation (e.g., 500ms)
+  slideUp.value = true;
   setTimeout(() => {
     router.push('/signin');
   }, 500);
 }
 </script>
-
-<style scoped>
-/* Full page center setup */
-.page-container {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f9fafb;
-  font-family: sans-serif;
-}
-
-/* Logo top-left */
-.logo {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-/* Arrow icon */
-.arrow {
-  font-size: 2rem;
-  cursor: pointer;
-  margin-bottom: 1rem;
-  color: #007bff;
-  transition: transform 0.5s ease;
-}
-
-/* Slide-up animation */
-.arrow.slide-up {
-  transform: translateY(-100px);
-  opacity: 0;
-}
-
-/* Welcome text */
-.welcome {
-  text-align: center;
-  padding: 1rem;
-}
-</style>
