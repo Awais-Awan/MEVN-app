@@ -5,7 +5,7 @@
 
     <!-- Up arrow to go to Login -->
     <div
-      :class="['text-3xl cursor-pointer mb-4 text-blue-600 transition-all duration-500 ease-in-out', { 'translate-y-[-100px] opacity-0': slideUp }]"
+      :class="['text-3xl cursor-pointer mb-4 text-gray-800 transition-all duration-500 ease-in-out', { 'translate-y-[-100px] opacity-0': slideUp }]"
       @click="goToLogin"
     >
       <i class="fas fa-arrow-up"></i>
@@ -13,8 +13,8 @@
 
     <!-- Centered welcome message -->
     <div class="text-center px-4">
-      <h1 class="text-3xl font-bold text-white mb-2">Welcome to the E-Commerce App!</h1>
-      <p class="text-white text-lg">Explore our products and enjoy shopping 🛍️</p>
+      <h1 class="text-3xl font-bold text-gray-800 mb-2">Welcome to the E-Commerce App!</h1>
+      <p class="text-gray-800 text-lg">Explore our products and enjoy shopping </p>
     </div>
   </div>
 </template>
