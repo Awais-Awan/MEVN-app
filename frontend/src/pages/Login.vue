@@ -30,7 +30,12 @@ const message = ref("");
 async function handleSignIn(){
   try{
     const response = await axios.post("http://localhost:5000/api/signin",form)
+    localStorage.setItem("token", response.data.token);
     message.value = response.data.message
+
+    setTimeout(()=>{
+      router.push('/home')
+    },500);
 
   }catch(error){
     if(error.response){
