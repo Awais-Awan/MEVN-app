@@ -34,7 +34,7 @@ async function handleSignIn(){
     message.value = response.data.message
 
     setTimeout(()=>{
-      router.push('/home')
+      router.push('/tasks')
     },500);
 
   }catch(error){

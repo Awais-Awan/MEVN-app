@@ -2,13 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Signup from '../pages/Signup.vue'
 import Signin from '../pages/Login.vue'
 import welcome from '../pages/welcome.vue'
-import home from '../pages/home.vue'
+import tasks from '../pages/tasks.vue'
 
 const routes = [
   { path: '/', component: welcome, meta:{guestOnly : true} },
   { path: '/signup', component: Signup, meta: {guestOnly : true} },
   { path: '/signin', component: Signin, meta: {guestOnly : true} },
-  {path: '/home', component: home, meta: {requiresAuth : true}},
+  {path: '/tasks', component: tasks, meta: {requiresAuth : true}},
 ]
 
 
@@ -25,7 +25,7 @@ router.beforeEach((to,from,next)=>{
     next("/signin");
   }
   else if (token && to.meta.guestOnly){
-    next("/home");
+    next("/tasks");
   }
   else{
     next();
